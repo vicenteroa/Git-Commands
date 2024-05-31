@@ -1,6 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Footer from '../components/footer.astro';
 ---
 
 <Layout title="About">
+    <div class="flex flex-col items-center max-h-full max-w-full px-5 py-44"> 
+        <h1 class="text-4xl font-bold text-center mb-20">About</h1>
+        <p class="text-lg text-center" id="about_1">
+            <span id="element"></span>
+        </p>
+        <!-- Footer -->
+    </div>
 </Layout>
+
+<script>
+    import Typed from 'typed.js';
+    const typed = new Typed("#element", {
+        strings: ["This is a list of git commands that I use in my daily work. I'm not a git expert, so I'm open to suggestions and improvements<br> if you have any suggestions or improvements, please feel free to open an issue on <a  class=\" text-purple-700 hover:underline\" href=\"https://github.com/vicenteroa/git-commands\" target=\"_blank\">GitHub</a>.<br> If you want to contribute, you can fork the repository and send a pull request."],
+        loop: false,
+        typeSpeed: 16,
+    });
+</script>
