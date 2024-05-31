@@ -24,6 +24,22 @@
         });
 </script>
 
+<script>
+    const boton = document.querySelector("button") as HTMLButtonElement;
+    const select = document.querySelector("select") as HTMLSelectElement;
+
+    boton.addEventListener("click", function () {
+        const opcionSeleccionada = select.options[select.selectedIndex].value; 
+        sessionStorage.setItem('opcion seleccionada', opcionSeleccionada);
+
+        // Crear y disparar un evento personalizado
+        const event = new CustomEvent('opcionSeleccionada', { detail: opcionSeleccionada });
+        window.dispatchEvent(event);
+    });
+</script>
+
+
+
 <style>
     .form-select {   
         border: 1px solid #ccc;

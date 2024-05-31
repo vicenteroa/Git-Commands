@@ -1,0 +1,24 @@
+{
+    "commands": {
+        "titulo": "Subir Cambios",
+        "option":"opcion4",
+        "setps":[
+            {
+                "value": "Paso 1",
+                "description": "Primero añade todos los archivos modifcados en el directorio al area de preparacion de git",
+                "command": "git add ."
+            },
+            {
+                "value": "Paso 2",
+                "description": "Crea el commit con el nombre de la rama y el mensaje de la rama",
+                "command": "git commit -m \"$TITLE\""
+            },
+            {
+                "value": "Paso 3",
+                "description": "Pusha el commit a la rama remota",
+                "command": "git push origin $TITLE"
+            }
+        ]
+
+    }
+}
