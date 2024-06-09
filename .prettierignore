@@ -5,3 +5,6 @@ node_modules/
 dist/
 public/
 src/firebase
+.eslintrc.cjs
+.prettierrc.cjs
+tsconfig.json

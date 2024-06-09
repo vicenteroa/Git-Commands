@@ -1,38 +1,38 @@
 ---
+
 ---
 
 <ol class="absolute border-s border-gray-200 dark:border-gray-700" id="timeline"></ol>
-</ol>
+
 <script>
-    window.addEventListener('opcionSeleccionada', function(event) {
-        const customEvent = event as CustomEvent;
-        const opcionSeleccionada = customEvent.detail;
-        if (opcionSeleccionada === "opcion4") {
-            fetch('/commands.json')
-                .then(response => response.json())
-                .then(commands => {
-                    const steps = commands.commands.setps;
-                    const timeline = document.querySelector('#timeline') as HTMLOListElement;
-                    timeline.innerHTML = '';
-                    steps.forEach((step : any, index : number) => {
-                        const li = document.createElement('li');
-                        li.className = 'mb-10 ms-4';
-                        li.innerHTML = `
+  window.addEventListener('opcionSeleccionada', function (event) {
+    const customEvent = event as CustomEvent
+    const opcionSeleccionada = customEvent.detail
+    if (opcionSeleccionada === 'opcion4') {
+      fetch('/commands.json')
+        .then((response) => response.json())
+        .then((commands) => {
+          const steps = commands.commands.setps
+          const timeline = document.querySelector('#timeline') as HTMLOListElement
+          timeline.innerHTML = ''
+          steps.forEach((step: any, index: number) => {
+            const li = document.createElement('li')
+            li.className = 'mb-10 ms-4'
+            li.innerHTML = `
                             <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
                             <h3 class="text-lg font-semibold text-gray-900 dark:text-white">${step.value}</h3>
                             <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">${step.description}</p>
                             <code>${step.command}</code>
-                        `;
-                        timeline.appendChild(li);
-                    });
-                });
-        }
-    });
+                        `
+            timeline.appendChild(li)
+          })
+        })
+    }
+  })
 </script>
 
 <style>
-    #timeline{
-        margin-top: 30vh;
-    }   
+  #timeline {
+    margin-top: 30vh;
+  }
 </style>
-

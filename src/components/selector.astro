@@ -1,62 +1,81 @@
-<div class="flex justify-center items-center min-h-full max-w-full"></div>
+<div class="flex min-h-full max-w-full items-center justify-center"></div>
 <h1 class="title"><span id="element"></span></h1>
-        <select class="form-select" name="opcion">
-            <option value="opcion1">Añadir un nuevo repositorio</option>
-            <option value="opcion2">Actualizar un repositorio</option>
-            <option value="opcion3">Añadir un nuevo archivo</option>
-            <option value="opcion4">Subir cambios</option>
-            <option value="opcion5">Eliminar un archivo</option>
-            <option value="opcion6">Eliminar un repositorio</option>
-        </select>
-    </div>
-    <div class="flex justify-center items-center" id="but">
-        <button class="group relative inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32"><div class="inline-flex whitespace-nowrap opacity-0 transition-all duration-200 group-hover:-translate-x-3 group-hover:opacity-100">Enviar</div><div class="absolute right-3.5"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></div></button>
-    </div>
-    </div>
+<select class="form-select" name="opcion">
+  <option value="opcion1">Añadir un nuevo repositorio</option>
+  <option value="opcion2">Actualizar un repositorio</option>
+  <option value="opcion3">Añadir un nuevo archivo</option>
+  <option value="opcion4">Subir cambios</option>
+  <option value="opcion5">Eliminar un archivo</option>
+  <option value="opcion6">Eliminar un repositorio</option>
+</select>
+
+<div class="flex items-center justify-center" id="but">
+  <button
+    class="group relative inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-neutral-950 font-medium text-neutral-200 transition-all duration-300 hover:w-32"
+    ><div
+      class="inline-flex whitespace-nowrap opacity-0 transition-all duration-200 group-hover:-translate-x-3 group-hover:opacity-100"
+    >
+      Enviar
+    </div><div class="absolute right-3.5">
+      <svg
+        width="15"
+        height="15"
+        viewBox="0 0 15 15"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-5 w-5"
+        ><path
+          d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z"
+          fill="currentColor"
+          fill-rule="evenodd"
+          clip-rule="evenodd"></path></svg
+      >
+    </div></button
+  >
+</div>
+
 <script>
-    import Typed from 'typed.js';
-        const typed = new Typed('#element', {
-        strings: ['¿Que te gustaria hacer?','Selecciona una opción'],
-        loop: true,
-        typeSpeed: 40,
-        backSpeed: 30,
-        backDelay: 5000,
-        });
+  import Typed from 'typed.js'
+  const typed = new Typed('#element', {
+    strings: ['¿Que te gustaria hacer?', 'Selecciona una opción'],
+    loop: true,
+    typeSpeed: 40,
+    backSpeed: 30,
+    backDelay: 5000,
+  })
 </script>
 
 <script>
-    const boton = document.querySelector("button") as HTMLButtonElement;
-    const select = document.querySelector("select") as HTMLSelectElement;
+  const boton = document.querySelector('button') as HTMLButtonElement
+  const select = document.querySelector('select') as HTMLSelectElement
 
-    boton.addEventListener("click", function () {
-        const opcionSeleccionada = select.options[select.selectedIndex].value; 
-        sessionStorage.setItem('opcion seleccionada', opcionSeleccionada);
+  boton.addEventListener('click', function () {
+    const opcionSeleccionada = select.options[select.selectedIndex].value
+    sessionStorage.setItem('opcion seleccionada', opcionSeleccionada)
 
-        // Crear y disparar un evento personalizado
-        const event = new CustomEvent('opcionSeleccionada', { detail: opcionSeleccionada });
-        window.dispatchEvent(event);
-    });
+    // Crear y disparar un evento personalizado
+    const event = new CustomEvent('opcionSeleccionada', { detail: opcionSeleccionada })
+    window.dispatchEvent(event)
+  })
 </script>
-
-
 
 <style>
-    .form-select {   
-        border: 1px solid #ccc;
-        border-radius: 3vh;
-        width: 60vh;
-        height: 4vh;
-        font-size: 1.5vh;
-    }
-    .title {
-        font-size: 2vh;
-        padding: 2vh;
-        text-align: center;
-        margin-top: 10vh;
-        font-size: xx-large;
-        font-weight: bold
-    }
-    #but{
-        padding: 2vh;
-    }
+  .form-select {
+    border: 1px solid #ccc;
+    border-radius: 3vh;
+    width: 60vh;
+    height: 4vh;
+    font-size: 1.5vh;
+  }
+  .title {
+    font-size: 2vh;
+    padding: 2vh;
+    text-align: center;
+    margin-top: 10vh;
+    font-size: xx-large;
+    font-weight: bold;
+  }
+  #but {
+    padding: 2vh;
+  }
 </style>

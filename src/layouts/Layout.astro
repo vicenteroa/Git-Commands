@@ -1,56 +1,62 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/footer.astro';
+import Header from '../components/Header.astro'
 interface Props {
-	title: string;
+  title: string
 }
-
-const { title } = Astro.props;
+const { title } = Astro.props
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Git Commands es una pagina donde puedes encontrar los comandos de git que necesitas para realizar tus tareas con git." />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet">
-		<meta property="og:title" content={title} />
-		<meta property="og:type" content="website" />
-		<meta property="og:image" content="/image.png" />
-		<meta property="og:description" content="Git Commands es una pagina donde puedes encontrar los comandos de git que necesitas para realizar tus tareas con git." />
-		<title>{title}</title>
-	</head>
-	<body >
-		<main class="custom-background">
-		<Header/>
-		<slot />
-	</main>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Git Commands es una pagina donde puedes encontrar los comandos de git que necesitas para realizar tus tareas con git."
+    />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <meta property="og:title" content={title} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/image.png" />
+    <meta
+      property="og:description"
+      content="Git Commands es una pagina donde puedes encontrar los comandos de git que necesitas para realizar tus tareas con git."
+    />
+    <title>{title}</title>
+  </head>
+  <body>
+    <main class="custom-background">
+      <Header />
+      <slot />
+    </main>
+  </body>
 </html>
 
 <style is:global>
-	:root {
-		color-scheme: light dark;
-	}
-	html {
-		font-family: 'Onest', sans-serif;
-	}
-	body{
-		margin: 0;
-		box-sizing: border-box;
-		}
-	.custom-background {
-	position: absolute;
-	z-index: -10;
-	height: 100%;
-	width: 100%;
-	padding: 12px 2px;
-	background: radial-gradient(125% 125% at 50% 10%, #000 40%, #63e 100%) !important;
-	}
-
+  :root {
+    color-scheme: light dark;
+  }
+  html {
+    font-family: 'Onest', sans-serif;
+  }
+  body {
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .custom-background {
+    position: absolute;
+    z-index: -10;
+    height: 100%;
+    width: 100%;
+    padding: 12px 2px;
+    background: radial-gradient(125% 125% at 50% 10%, #000 40%, #63e 100%) !important;
+  }
 </style>
